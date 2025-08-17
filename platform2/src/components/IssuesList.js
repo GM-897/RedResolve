@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import IssueItem from './IssueItem';
 
-const API_URL = 'http://localhost:4000/api/tickets';
+const API_URL = 'https://red-resolve-backend.vercel.app/api/tickets';
 
 const IssuesList = () => {
     const [issues, setIssues] = useState([]);

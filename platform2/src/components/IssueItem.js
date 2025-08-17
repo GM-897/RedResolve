@@ -10,7 +10,7 @@ const IssueItem = ({ issue, onStatusChange }) => {
         if (!confirmed) return;
 
         try {
-            const res = await fetch(`http://localhost:4000/api/tickets/${issue._id}/status`, {
+            const res = await fetch(`https://red-resolve-backend.vercel.app/api/tickets/${issue._id}/status`, {
                 method: 'PATCH',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ status: 'Pending' })

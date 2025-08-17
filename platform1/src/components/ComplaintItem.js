@@ -7,7 +7,7 @@ const ComplaintItem = ({ complaint, index, refreshComplaints }) => {
   const handleRemove = async () => {
     setIsLoading(true);
     try {
-      await fetch(`http://localhost:4000/api/v1/tickets/delete/${complaint._id}`, { 
+      await fetch(`https://red-resolve-backend.vercel.app/api/v1/tickets/delete/${complaint._id}`, { 
         method: "DELETE" 
       });
       refreshComplaints();
@@ -21,7 +21,7 @@ const ComplaintItem = ({ complaint, index, refreshComplaints }) => {
   const handleResolved = async () => {
     setIsLoading(true);
     try {
-      await fetch(`http://localhost:4000/api/v1/tickets/changeStatusToResolved/${complaint._id}`, { 
+      await fetch(`https://red-resolve-backend.vercel.app/api/v1/tickets/changeStatusToResolved/${complaint._id}`, { 
         method: "PUT" 
       });
       refreshComplaints();
@@ -35,7 +35,7 @@ const ComplaintItem = ({ complaint, index, refreshComplaints }) => {
   const handleNotResolved = async () => {
     setIsLoading(true);
     try {
-      await fetch(`http://localhost:4000/api/v1/tickets/changeStatusToNotResolved/${complaint._id}`, { 
+      await fetch(`https://red-resolve-backend.vercel.app/api/v1/tickets/changeStatusToNotResolved/${complaint._id}`, { 
         method: "PUT" 
       });
       refreshComplaints();

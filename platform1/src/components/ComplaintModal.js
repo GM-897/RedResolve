@@ -76,7 +76,7 @@ const ComplaintModal = ({ isOpen, onRequestClose }) => {
         form.append('image', formData.files[0]);
       }
 
-      const response = await fetch('http://localhost:4000/api/v1/tickets/submit', {
+      const response = await fetch('https://red-resolve-backend.vercel.app/api/v1/tickets/submit', {
         method: 'POST',
         body: form,
       });

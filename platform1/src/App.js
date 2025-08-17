@@ -7,7 +7,9 @@ import AddComplaintButton from './components/AddComplaintButton';
 import ComplaintModal from './components/ComplaintModal';
 
 // 1. Connect to backend via Socket.IO
-const socket = io('http://localhost:4000');
+// const socket = io('http://localhost:4000');
+
+const socket = io('https://red-resolve-backend.vercel.app');
 
 function App() {
   const [complaints, setComplaints] = useState([]);
@@ -16,7 +18,10 @@ function App() {
   // 2. Initial fetch for already existing tickets
   const fetchComplaints = useCallback(async () => {
     try {
-      const res = await fetch('http://localhost:4000/api/v1/tickets/getAllTicketsUser');
+      // const res = await fetch('http://localhost:4000/api/v1/tickets/getAllTicketsUser');
+
+    const res = await fetch('https://red-resolve-backend.vercel.app/api/v1/tickets/getAllTicketsUser');
+
       const data = await res.json();
 
       if (data.success) {
