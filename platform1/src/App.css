@@ -1,0 +1,470 @@
+/* Enhanced CSS Variables */
+:root {
+  --primary: #dc2626;
+  --primary-dark: #b91c1c;
+  --primary-light: #fef2f2;
+  --secondary: #64748b;
+  --success: #16a34a;
+  --warning: #f59e0b;
+  --danger: #dc2626;
+  --text-dark: #1f2937;
+  --text-light: #ffffff;
+  --text-muted: #6b7280;
+  --background: #f8fafc;
+  --surface: #ffffff;
+  --border-color: #e5e7eb;
+  --hover-bg: #f1f5f9;
+  --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --radius: 8px;
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Center content with padding */
+#root {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  background: var(--background);
+  min-height: 100vh;
+}
+
+/* Header */
+header {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  padding: 2rem;
+  border-radius: var(--radius);
+  margin-bottom: 2rem;
+  box-shadow: var(--shadow-lg);
+}
+
+header h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin: 0;
+  color: var(--text-light);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Complaints Container */
+.complaints-container {
+  background: var(--surface);
+  padding: 2rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  margin-bottom: 2rem;
+  border: 1px solid var(--border-color);
+  transition: var(--transition);
+}
+
+.complaints-container:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-2px);
+}
+
+.complaints-container h2 {
+  font-size: 1.75rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: var(--text-dark);
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+.complaints-container h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary), var(--primary-dark));
+  border-radius: 2px;
+}
+
+/* Table */
+.complaints-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+  background: var(--surface);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  table-layout: fixed;
+}
+
+/* Column widths */
+.complaints-table th:nth-child(1),
+.complaints-table td:nth-child(1) {
+  width: 8%;
+}
+
+.complaints-table th:nth-child(2),
+.complaints-table td:nth-child(2) {
+  width: 18%;
+  min-width: 120px;
+}
+
+.complaints-table th:nth-child(3),
+.complaints-table td:nth-child(3) {
+  width: 35%;
+}
+
+.complaints-table th:nth-child(4),
+.complaints-table td:nth-child(4) {
+  width: 12%;
+}
+
+.complaints-table th:nth-child(5),
+.complaints-table td:nth-child(5) {
+  width: 15%;
+}
+
+.complaints-table th:nth-child(6),
+.complaints-table td:nth-child(6) {
+  width: 12%;
+}
+
+.complaints-table th {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  color: var(--text-light);
+  text-align: left;
+  padding: 16px 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-size: 0.85rem;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.complaints-table td {
+  border-bottom: 1px solid var(--border-color);
+  padding: 14px 12px;
+  background: var(--surface);
+  transition: var(--transition);
+  vertical-align: middle;
+}
+
+.complaints-table tr {
+  transition: var(--transition);
+}
+
+.complaints-table tr:hover {
+  background-color: var(--hover-bg);
+  transform: scale(1.01);
+  box-shadow: 0 2px 8px rgba(220, 38, 38, 0.15);
+}
+
+.complaints-table tr:nth-child(even) {
+  background-color: #fafafa;
+}
+
+.complaints-table tr:nth-child(even):hover {
+  background-color: var(--hover-bg);
+}
+
+/* Status Styling */
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 12px;
+  border-radius: 50px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: var(--transition);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.status-pending {
+  background: linear-gradient(135deg, #fbbf24, #f59e0b);
+  color: #92400e;
+  border: 1px solid #f59e0b;
+}
+
+.status-open {
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  color: white;
+  border: 1px solid #dc2626;
+}
+
+.status-resolved {
+  background: linear-gradient(135deg, #34d399, #10b981);
+  color: #065f46;
+  border: 1px solid #10b981;
+}
+
+.status-not-resolved {
+  background: linear-gradient(135deg, #f87171, #ef4444);
+  color: white;
+  border: 1px solid #ef4444;
+}
+
+/* Category Styling */
+.category-cell {
+  color: var(--text-dark);
+  font-weight: 500;
+  background: linear-gradient(135deg, var(--primary-light), #fff);
+  border-radius: 6px;
+  padding: 8px;
+  border-left: 3px solid var(--primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 0.9rem;
+}
+
+/* Room Styling */
+.room-cell {
+  color: var(--primary-dark);
+  font-weight: 600;
+  background: var(--primary-light);
+  border-radius: 4px;
+  padding: 4px 8px;
+  display: inline-block;
+  border: 1px solid rgba(220, 38, 38, 0.2);
+}
+
+/* Add Complaint Button */
+.add-complaint-container {
+  text-align: center;
+  margin: 2rem 0;
+}
+
+.add-complaint-btn {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  color: var(--text-light);
+  padding: 14px 28px;
+  font-size: 1.1rem;
+  border-radius: var(--radius);
+  font-weight: 600;
+  transition: var(--transition);
+  box-shadow: var(--shadow);
+  border: none;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  position: relative;
+  overflow: hidden;
+}
+
+.add-complaint-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.add-complaint-btn:hover {
+  background: linear-gradient(135deg, var(--primary-dark) 0%, #991b1b 100%);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.add-complaint-btn:hover::before {
+  left: 100%;
+}
+
+/* Action Buttons Enhanced */
+.action-buttons {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.action-btn {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: var(--transition);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.action-btn::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.3s, height 0.3s;
+}
+
+.action-btn:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+.action-btn-remove {
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  color: white;
+  border: 1px solid #dc2626;
+}
+
+.action-btn-remove:hover {
+  background: linear-gradient(135deg, #dc2626, #b91c1c);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(220, 38, 38, 0.3);
+}
+
+.action-btn-resolved {
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  color: white;
+  border: 1px solid #16a34a;
+}
+
+.action-btn-resolved:hover {
+  background: linear-gradient(135deg, #16a34a, #15803d);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(34, 197, 94, 0.3);
+}
+
+.action-btn-not-resolved {
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+  color: white;
+  border: 1px solid #d97706;
+}
+
+.action-btn-not-resolved:hover {
+  background: linear-gradient(135deg, #d97706, #b45309);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(245, 158, 11, 0.3);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .complaints-table {
+    font-size: 0.85rem;
+  }
+  
+  .complaints-table th,
+  .complaints-table td {
+    padding: 8px 6px;
+  }
+  
+  /* Adjust column widths for mobile */
+  .complaints-table th:nth-child(2),
+  .complaints-table td:nth-child(2) {
+    width: 20%;
+    min-width: 100px;
+  }
+  
+  .complaints-table th:nth-child(3),
+  .complaints-table td:nth-child(3) {
+    width: 30%;
+  }
+  
+  .action-buttons {
+    flex-direction: column;
+  }
+  
+  .action-btn {
+    margin-bottom: 4px;
+  }
+  
+  header h1 {
+    font-size: 2rem;
+  }
+}
+
+/* Loading Animation */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+.loading {
+  animation: pulse 1.5s infinite;
+}
+
+/* Enhanced Modal Styles */
+.complaint-modal-content {
+  background: linear-gradient(135deg, #ffffff 0%, #fafafa 100%) !important;
+  border-radius: 16px !important;
+  padding: 2rem !important;
+  font-size: 1rem;
+  color: var(--text-dark);
+  max-width: 650px;
+  margin: auto;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25) !important;
+  border: 1px solid var(--border-color);
+}
+
+.complaint-modal-content h2 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: var(--primary-dark);
+  text-align: center;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+.complaint-modal-content h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary), var(--primary-dark));
+  border-radius: 2px;
+}
+
+/* Enhanced File Upload */
+.complaint-modal-content .file-upload {
+  padding: 2rem;
+  border: 2px dashed var(--primary);
+  border-radius: var(--radius);
+  text-align: center;
+  background: linear-gradient(135deg, var(--primary-light), #ffffff);
+  cursor: pointer;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.complaint-modal-content .file-upload::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(220, 38, 38, 0.1), transparent);
+  transition: left 0.5s;
+}
+
+.complaint-modal-content .file-upload:hover::before {
+  left: 100%;
+}
+
+.complaint-modal-content .file-upload:hover {
+  border-color: var(--primary-dark);
+  background: linear-gradient(135deg, #ffffff, var(--primary-light));
+  transform: scale(1.02);
+}
